@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+from time import clock
 
 def admissible(i1,i2,i3,i4,i5,i6,i7,i8):
     """
@@ -33,6 +34,10 @@ def admissible(i1,i2,i3,i4,i5,i6,i7,i8):
     )
 
 
+
+# 時間計測用(begin)
+t1 = clock()
+
 # メインルーチン
 cnt = 0
 
@@ -47,3 +52,9 @@ for i1 in range(8):
                                 if admissible(i1,i2,i3,i4,i5,i6,i7,i8):
                                     cnt += 1
                                     print(cnt,": ",i1,i2,i3,i4,i5,i6,i7,i8)
+
+# 時間計測用(end)
+t2 = clock()
+
+# ここまでにかかった時間の表示
+print("time --> {}".format(t2-t1))
