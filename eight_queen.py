@@ -21,24 +21,30 @@ def admissible(cols):
     return True
 
 
+def solve(N):
+
+    def _solve(r, cols):
+        ans = 0
+        if r == N:
+            if admissible(cols):
+                print(cols)
+                ans += 1
+        else:
+            for i in range(N):
+                cols[r] = i
+                ans += _solve(r+1, cols)
+        return ans
+
+    cols = [0] * N # initialize
+    return _solve(0, cols)
+
+
 # 時間計測用(begin)
 t1 = clock()
 
 # メインルーチン
-cnt = 0
-
-for i1 in range(8):
-    for i2 in range(8):
-        for i3 in range(8):
-            for i4 in range(8):
-                for i5 in range(8):
-                    for i6 in range(8):
-                        for i7 in range(8):
-                            for i8 in range(8):
-                                if admissible([i1,i2,i3,i4,i5,i6,i7,i8]):
-                                    cnt += 1
-                                    print(cnt,": ",i1,i2,i3,i4,i5,i6,i7,i8)
-
+cnt = solve(8)
+print("The answer is --> {}".format(cnt))
 # 時間計測用(end)
 t2 = clock()
 
