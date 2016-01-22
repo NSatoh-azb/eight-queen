@@ -11,6 +11,8 @@ def admissible(i1,i2,i3,i4,i5,i6,i7,i8):
 
 
 # メインルーチン
+cnt = 0
+
 for i1 in range(8):
     for i2 in range(8):
         for i3 in range(8):
@@ -20,4 +22,5 @@ for i1 in range(8):
                         for i7 in range(8):
                             for i8 in range(8):
                                 if admissible(i1,i2,i3,i4,i5,i6,i7,i8):
-                                    print(i1,i2,i3,i4,i5,i6,i7,i8)
+                                    cnt += 1
+                                    print(cnt,": ",i1,i2,i3,i4,i5,i6,i7,i8)
