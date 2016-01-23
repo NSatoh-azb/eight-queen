@@ -5,10 +5,33 @@ def solve(N):
     cnt = 0
 
     def put(board, r, c):
-        pass
+        nonlocal N
+        if r < N:
+            for row in range(r+1, N):
+                # 同じ列の下の行に，クイーンの利き数を+1
+                board[row][c] += 1
+
+                # 下の行の各対角線上に，クイーンの利き数を+1
+                d = row - r
+                if (c+d < N):
+                    board[row][c + d] += 1
+                if (c-d >= 0):
+                    board[row][c - d] += 1
 
     def remove(board, r, c):
-        pass
+        nonlocal N
+        if r < N:
+            for row in range(r+1, N):
+                # 同じ列の下の行から，クイーンの利き数を-1
+                board[row][c] += - 1
+
+                # 下の行の各対角線上から，クイーンの利き数を-1
+                d = row - r;
+                if (c+d < N):
+                   board[row][c + d] += - 1
+                if (c-d >= 0):
+                   board[row][c - d] += - 1
+
 
     def _solve(r, board):
         ans = 0
